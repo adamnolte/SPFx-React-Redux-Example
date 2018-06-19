@@ -1,0 +1,11 @@
+{
+  "@microsoft/generator-sharepoint": {
+    "isCreatingSolution": true,
+    "environment": "spo",
+    "version": "1.5.0",
+    "libraryName": "spx-react-example",
+    "libraryId": "1158bd20-f941-48f6-b5e7-a518e96501ca",
+    "packageManager": "npm",
+    "componentType": "webpart"
+  }
+}

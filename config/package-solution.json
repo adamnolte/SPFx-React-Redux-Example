@@ -1,0 +1,12 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "spx-react-example-client-side-solution",
+    "id": "1158bd20-f941-48f6-b5e7-a518e96501ca",
+    "version": "1.0.0.0",
+    "includeClientSideAssets": true
+  },
+  "paths": {
+    "zippedPackage": "solution/spx-react-example.sppkg"
+  }
+}
