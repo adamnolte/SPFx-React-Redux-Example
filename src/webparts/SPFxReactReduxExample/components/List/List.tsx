@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
-import { ListView } from "@pnp/spfx-controls-react/lib/ListView";
+import { ListView, IViewField } from "@pnp/spfx-controls-react/lib/ListView";
 
 import { IAppState } from '../../redux/rootReducer';
 import * as listActions from '../../redux/actions/assetActions';
@@ -13,11 +13,32 @@ class List extends React.Component<IListProps, {}> {
   }
 
   public render(): React.ReactElement<IListProps> {
+    const viewFields: IViewField[] = [
+      {
+        name: 'id',
+        displayName: 'ID',
+        maxWidth: 20,
+      },
+      {
+        name: 'title',
+        displayName: 'Title',
+        maxWidth: 50,
+      },
+      {
+        name: 'description',
+        displayName: 'Description'
+      },
+      {
+        name: 'number',
+        displayName: 'Number',
+      }
+    ]
     // https://sharepoint.github.io/sp-dev-fx-controls-react/controls/ListView/
     return (
       <div className={styles.wrapper}>
         <ListView
           items={this.props.assets}
+          viewFields={viewFields}
         />
       </div>
     );

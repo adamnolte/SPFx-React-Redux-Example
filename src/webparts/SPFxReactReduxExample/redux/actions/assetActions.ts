@@ -11,7 +11,7 @@ export const FETCH_ASSETS_SUCCESS = 'FETCH_ASSETS_SUCCESS';
 
 const fetchAssetsFromList = (): Promise<IAssetList[]> => {
   return sp.web.lists
-    .getById('02480b64-497f-4028-95cb-f91d92294ab3')
+    .getByTitle('Assets')
     .items
     .select('Id', 'GUID', 'Title', 'claa', 'sicd')
     .get()
