@@ -1,7 +1,8 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
-import * as strings from 'HelloWorldWebPartStrings';
+import * as strings from 'SPFxReactReduxExampleWebPartStrings';
 
+import { IAppState } from '../../redux/rootReducer';
 import * as listActions from '../../redux/actions/counterActions';
 import styles from './Counter.module.scss';
 
@@ -34,7 +35,7 @@ export interface ICounterProps {
   counter: number;
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state: IAppState) => {
   return {
     counter: state.counterReducer.counter,
   };

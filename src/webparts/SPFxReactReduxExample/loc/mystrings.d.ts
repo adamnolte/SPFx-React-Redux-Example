@@ -1,4 +1,4 @@
-declare interface IHelloWorldWebPartStrings {
+declare interface ISPFxReactReduxExampleWebPartStrings {
   PropertyPaneDescription: string;
   BasicGroupName: string;
   DescriptionFieldLabel: string;
@@ -6,7 +6,7 @@ declare interface IHelloWorldWebPartStrings {
   Decrement: string;
 }
 
-declare module 'HelloWorldWebPartStrings' {
-  const strings: IHelloWorldWebPartStrings;
+declare module 'SPFxReactReduxExampleWebPartStrings' {
+  const strings: ISPFxReactReduxExampleWebPartStrings;
   export = strings;
 }
