@@ -1,4 +1,9 @@
 import { sp } from '@pnp/sp';
+import {
+  Environment,
+  EnvironmentType
+} from '@microsoft/sp-core-library';
+import mockAssets from '../mockData/mockAssets';
 import { IAssetList } from '../../sp_data_models/IAssetList';
 
 export const FETCH_ASSETS = 'FETCH_ASSETS';
@@ -22,8 +27,14 @@ const fetchAssetsFromList = (): Promise<IAssetList[]> => {
 };
 
 export const fetchAssets = () => {
+  if (Environment.type === EnvironmentType.ClassicSharePoint || Environment.type === EnvironmentType.SharePoint) {
+    return (dispatch) => {
+      fetchAssetsFromList().then(results => dispatch(fetchAssetsSuccess(results)));
+    };
+  }
+  // If running from local host, we just load mock data
   return (dispatch) => {
-    fetchAssetsFromList().then(results => dispatch(fetchAssetsSuccess(results)));
+    dispatch(fetchAssetsSuccess(mockAssets));
   };
 };
 
