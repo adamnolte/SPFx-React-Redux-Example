@@ -17,7 +17,7 @@ export interface ICounterWebPartProps {
   description: string;
 }
 
-export default class HelloWorldWebPart extends BaseClientSideWebPart<ICounterWebPartProps> {
+export default class SPFxReactReduxExampleWebPart extends BaseClientSideWebPart<ICounterWebPartProps> {
 
   // SPFx Webpart lifecycle method
   // Called once on web part init
