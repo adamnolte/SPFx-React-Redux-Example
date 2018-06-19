@@ -16,7 +16,6 @@ class App extends React.Component<IAppProps, {}> {
 
 
 export interface IAppProps {
-  context: BaseComponentContext;
 }
 
 export default App;

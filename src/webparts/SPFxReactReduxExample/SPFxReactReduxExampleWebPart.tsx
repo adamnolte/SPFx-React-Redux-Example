@@ -25,6 +25,7 @@ export default class HelloWorldWebPart extends BaseClientSideWebPart<ICounterWeb
     return super.onInit().then(_ => {
       sp.setup({
         sp: {
+          baseUrl: this.context.pageContext.web.absoluteUrl,
           headers: {
             "Accept": "application/json; odata=nometadata",
           },
@@ -36,7 +37,7 @@ export default class HelloWorldWebPart extends BaseClientSideWebPart<ICounterWeb
   public render(): void {
     const element = (
       <Provider store={store}>
-        <App context={this.context}/>
+        <App />
       </Provider>
     );
 
