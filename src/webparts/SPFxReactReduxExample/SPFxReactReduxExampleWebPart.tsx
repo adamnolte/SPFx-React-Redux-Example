@@ -10,7 +10,7 @@ import {
 } from '@microsoft/sp-webpart-base';
 
 import store from './redux/store';
-import * as strings from 'HelloWorldWebPartStrings';
+import * as strings from 'SPFxReactReduxExampleWebPartStrings';
 import App from './components/App';
 
 export interface ICounterWebPartProps {
@@ -19,6 +19,8 @@ export interface ICounterWebPartProps {
 
 export default class HelloWorldWebPart extends BaseClientSideWebPart<ICounterWebPartProps> {
 
+  // SPFx Webpart lifecycle method
+  // Called once on web part init
   protected onInit(): Promise<void> {
     return super.onInit().then(_ => {
       sp.setup({
@@ -30,6 +32,7 @@ export default class HelloWorldWebPart extends BaseClientSideWebPart<ICounterWeb
       });
     })
   }
+
   public render(): void {
     const element = (
       <Provider store={store}>
