@@ -1,6 +1,6 @@
 {
   "name": "spx-react-example",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "private": true,
   "engines": {
     "node": ">=0.10.0"
@@ -21,10 +21,12 @@
     "@pnp/sp": "^1.1.1",
     "@pnp/spfx-controls-react": "^1.4.0",
     "@types/es6-promise": "0.0.33",
+    "@types/node": "^10.3.4",
     "@types/react": "15.6.6",
     "@types/react-dom": "15.5.6",
     "@types/react-redux": "5.0.1",
     "@types/webpack-env": "1.13.1",
+    "node-sppkg-deploy": "^1.2.0",
     "react": "15.6.2",
     "react-dom": "15.6.2",
     "react-redux": "^5.0.7",
@@ -36,9 +38,10 @@
     "@microsoft/sp-build-web": "1.5.0",
     "@microsoft/sp-module-interfaces": "1.5.0",
     "@microsoft/sp-webpart-workbench": "1.5.0",
-    "gulp": "~3.9.1",
     "@types/chai": "3.4.34",
     "@types/mocha": "2.2.38",
-    "ajv": "~5.2.2"
+    "ajv": "~5.2.2",
+    "gulp": "~3.9.1",
+    "gulp-spsync-creds": "2.3.8"
   }
 }
