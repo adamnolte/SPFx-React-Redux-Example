@@ -13,6 +13,9 @@ class List extends React.Component<IListProps, {}> {
   }
 
   public render(): React.ReactElement<IListProps> {
+    if (this.props.assets.length == 0) {
+      return (<div />);
+    }
     const viewFields: IViewField[] = [
       {
         name: 'id',
@@ -32,12 +35,13 @@ class List extends React.Component<IListProps, {}> {
         name: 'number',
         displayName: 'Number',
       }
-    ]
+    ];
     // https://sharepoint.github.io/sp-dev-fx-controls-react/controls/ListView/
     return (
       <div className={styles.wrapper}>
+        {this.props.counter}
         <ListView
-          items={this.props.assets}
+          items={this.props.assets.filter((asset) => asset.id === +this.props.match.params.id)}
           viewFields={viewFields}
         />
       </div>
@@ -49,11 +53,19 @@ class List extends React.Component<IListProps, {}> {
 export interface IListProps {
   fetchAssets: () => any;
   assets: IAssetList[];
+  counter: number;
+  match: {
+    params: {
+      id: string;
+    }
+  }
 }
 
-const mapStateToProps = (state: IAppState) => {
+const mapStateToProps = (state: IAppState, ownProps) => {
   return {
     assets: state.assetReducer.assets,
+    counter: state.counterReducer.counter,
+    match: ownProps.match,
   };
 };
 
