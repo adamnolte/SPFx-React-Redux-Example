@@ -13,7 +13,7 @@ const fetchAssetsFromList = (): Promise<IAssetList[]> => {
   return sp.web.lists
     .getByTitle('Assets')
     .items
-    .select('Id', 'GUID', 'Title', 'claa', 'sicd')
+    .select('Id', 'GUID', 'Title', 'claa', 'sicd', 'MultipleLinesOfText')
     .get()
     .then(results => results.map(item => {
       return {
@@ -22,6 +22,7 @@ const fetchAssetsFromList = (): Promise<IAssetList[]> => {
         title: item.Title,
         description: item.claa,
         number: item.sicd,
+        text: item.MultipleLinesOfText
       };
     }));
 };

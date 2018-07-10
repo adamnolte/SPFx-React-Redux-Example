@@ -4,4 +4,5 @@ export interface IAssetList {
   number: number;
   guid: string;
   id: number;
+  text: string;
 }

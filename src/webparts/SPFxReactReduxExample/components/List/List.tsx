@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { ListView, IViewField } from "@pnp/spfx-controls-react/lib/ListView";
+import DOMPurify from 'dompurify';
 
 import { IAppState } from '../../redux/rootReducer';
 import * as listActions from '../../redux/actions/assetActions';
@@ -32,16 +33,26 @@ class List extends React.Component<IListProps, {}> {
         displayName: 'Description'
       },
       {
+        name: 'text',
+        displayName: 'Multi Line'
+      },
+      {
         name: 'number',
         displayName: 'Number',
       }
     ];
+    const items = this.props.assets.filter((asset) => asset.id === +this.props.match.params.id);
+    console.log(DOMPurify.sanitize(items[0].text));
     // https://sharepoint.github.io/sp-dev-fx-controls-react/controls/ListView/
     return (
       <div className={styles.wrapper}>
-        {this.props.counter}
+        <div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(items[0].text)}} />
+        <div>
+          Not Sanitized
+          <div dangerouslySetInnerHTML={{ __html: items[0].text}} />
+        </div>
         <ListView
-          items={this.props.assets.filter((asset) => asset.id === +this.props.match.params.id)}
+          items={items}
           viewFields={viewFields}
         />
       </div>
@@ -53,7 +64,6 @@ class List extends React.Component<IListProps, {}> {
 export interface IListProps {
   fetchAssets: () => any;
   assets: IAssetList[];
-  counter: number;
   match: {
     params: {
       id: string;
@@ -64,7 +74,6 @@ export interface IListProps {
 const mapStateToProps = (state: IAppState, ownProps) => {
   return {
     assets: state.assetReducer.assets,
-    counter: state.counterReducer.counter,
     match: ownProps.match,
   };
 };

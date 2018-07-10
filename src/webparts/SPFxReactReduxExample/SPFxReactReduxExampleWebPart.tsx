@@ -8,6 +8,7 @@ import {
   IPropertyPaneConfiguration,
   PropertyPaneTextField
 } from '@microsoft/sp-webpart-base';
+import { escape } from '@microsoft/sp-lodash-subset';
 
 import store from './redux/store';
 import * as strings from 'SPFxReactReduxExampleWebPartStrings';
